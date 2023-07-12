@@ -115,39 +115,31 @@ export const FooterStyle = styled.footer`
 `
 
 export const MainContainer = styled.div`
-    padding:5rem;
-    padding-left:10rem;
-    padding-right:10rem;
     width:100%;
-`
-
-export const MainStyle = styled.div`
-    height:20.5rem;
     > h2 {
-        padding-left: 1rem
+        padding-top: 1rem;
+        padding-left: 2rem;
+        padding-bottom: 1rem;
     };
 `
 
 export const CardWrapper = styled.div`
     display:flex;
+    flex-wrap:wrap;
     width:100%;
     height:100%;
+    min-height:300px;
 `
 
 export const CardStyle = styled.div`
     position:relative;
     width:25%;
+    padding-left:2rem;
+    padding-right:2rem;
     height:100%;
-    padding:1rem;
     font-size:1rem;
     &:hover{
-            cursor: pointer;
-    }
-    >img {
-        width:100%;
-        height:70%;
-        object-fit:cover;
-        border-radius:10px;
+        cursor: pointer;
     }
     >div{
         display:flex;
@@ -157,20 +149,88 @@ export const CardStyle = styled.div`
                 font-weight:700
             }
         }
+        &:nth-child(3){
+            >p{
+                height:21px;
+            }
+        }
     }
     >span:nth-child(4){
         position:absolute;
         font-size:25px;
         color:#eee;
-        bottom:7rem;
-        right: 1.5rem;
+        bottom:20%;
+        right: 10%;
     }
-    
+`
+
+export const ImgWrapper = styled.div`
+    width:100%;
+    min-height:100px;
+    height:300px;
+    border-radius:10px;
+    overflow:hidden;
+    >img {
+        width:100%;
+        height:100%;
+        object-fit:cover;
+    }
 `
 
 export const ModalStyle= styled.span`
     position:fixed;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    top:0;
+    left:0;
     width:100vw;
     height:100vh;
-    
+    background-color:rgba(0,0,0,0.5);
+`
+
+export const ModalDiv = styled.div`
+    position:relative;
+    width:600px;
+    height:500px;
+    background-color:#eee;
+    overflow:hidden;
+    border-radius:10px;
+    >img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+    }
+    >span{
+        position:absolute;
+        bottom:1rem;
+        right:1rem;
+        font-size:2rem;
+        color:#eee;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    >p{
+        position:absolute;
+        top:1rem;
+        right:1rem;
+        font-size:2rem;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+`
+
+
+export const FilterWrapper = styled.div`
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:100px;
+    width:100%;
+    height:6rem;
+    >div:hover{
+        cursor: pointer;
+    }
 `
