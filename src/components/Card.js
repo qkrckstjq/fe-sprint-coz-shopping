@@ -56,6 +56,9 @@ export function Card ({data}) {
             <span
             onClick={(e)=>AddCartitem(e)}
             ><FaStar/></span>
+            <span>
+                
+            </span>
         </CardStyle>
     )
 }
