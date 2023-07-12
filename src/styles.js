@@ -10,11 +10,15 @@ export const GlobalStyle = createGlobalStyle`
     }
     body {
         margin-top:100px;
-        margin-bottom:100px;
     }
     a {
         text-decoration:none;
     }
+    #root {
+        width:100%;
+        height:100%;
+    }
+
 `
 
 export const LogoLink = styled(Link)`
@@ -30,7 +34,7 @@ export const HeaderStyle = styled.header`
     position:fixed;
     top:0px;
     left:0px;
-    width:100vw;
+    width: 100%;
     height:100px;
     background-color:white;
     box-shadow:1px 1px 10px 4px lightgray;
@@ -66,7 +70,7 @@ export const DropDown = styled.div`
     background-color:white;
     box-shadow:0px 0px 2px 0px lightgray;
     border-radius:10px;
-    z-index:10;
+    z-index:11;
 `
 export const MenuLink = styled(Link)`
     flex:1;
@@ -95,66 +99,78 @@ export const Triangle = styled.div`
     border-top-width:0;
     box-shadow:-1px -1px 1px 0px rgba(0,0,0,0.1);
     rotate:45deg;
-    z-index:11;
+
 `
 
 export const FooterStyle = styled.footer`
-    position:fixed;
-    bottom:0px;
-    left:0px;
-    width:100vw;
+    width:100%;
     height:50px;
     display:flex;
+    flex-direction:column;
     border-top:2px solid rgba(0,0,0,0.2);
     color:gray;
     justify-content:center;
     align-items:center;
+    background-color:white;
 `
 
-export const MainStyle = styled.main`
-    width:100vw;
-    height:25rem;
+export const MainContainer = styled.div`
+    padding:5rem;
+    padding-left:10rem;
+    padding-right:10rem;
+    width:100%;
+`
+
+export const MainStyle = styled.div`
+    height:20.5rem;
+    > h2 {
+        padding-left: 1rem
+    };
+`
+
+export const CardWrapper = styled.div`
     display:flex;
-    flex-direction:column;
-    > div {
-        
-    }
+    width:100%;
+    height:100%;
 `
 
 export const CardStyle = styled.div`
     position:relative;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    width:23rem;
-    height:21rem;
-    margin-left:1rem;
-    margin-right:1rem;
-    >img{
-        width:23rem;
-        height:18rem;
-        border-radius:10px;
+    width:25%;
+    height:100%;
+    padding:1rem;
+    font-size:1rem;
+    &:hover{
+            cursor: pointer;
+    }
+    >img {
+        width:100%;
+        height:70%;
         object-fit:cover;
+        border-radius:10px;
     }
     >div{
         display:flex;
         justify-content:space-between;
-        height:1.5rem;
-        font-size:1.2rem;
-        &:nth-child(2){
-            >:nth-child(1){
-                font-weight:600
+        &:nth-child(2) {
+            >p:nth-child(1) {
+                font-weight:700
             }
         }
     }
-    >span{
+    >span:nth-child(4){
         position:absolute;
-        bottom: 3.3rem;
-        right:0.5rem;
-        font-size:2rem;
+        font-size:25px;
         color:#eee;
-        &:hover{
-            cursor: pointer;
-        }
+        bottom:7rem;
+        right: 1.5rem;
     }
+    
+`
+
+export const ModalStyle= styled.span`
+    position:fixed;
+    width:100vw;
+    height:100vh;
+    
 `

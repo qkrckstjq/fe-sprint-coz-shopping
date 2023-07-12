@@ -23,9 +23,7 @@ function App() {
   },[])
   return (
     <>
-    <Header>
-
-    </Header>
+    <Header/>
       {isLoading
       ?<h2>로딩중...</h2>
       :
@@ -35,13 +33,7 @@ function App() {
       <Route path="/bookmark" element={<Bookmark/>}/>
       </Routes>
       }
-      
-
-    
-
-    <Footer>
-
-    </Footer>
+    <Footer/>
     </>
   );
 }
