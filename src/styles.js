@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
@@ -18,7 +18,6 @@ export const GlobalStyle = createGlobalStyle`
         width:100%;
         height:100%;
     }
-
 `
 
 export const LogoLink = styled(Link)`
@@ -76,7 +75,6 @@ export const MenuLink = styled(Link)`
     flex:1;
     width:100%;
     display:flex;
-    
     >p{
         font-size:1rem;
         display:flex;
@@ -116,6 +114,7 @@ export const FooterStyle = styled.footer`
 
 export const MainContainer = styled.div`
     width:100%;
+    min-height:810px;
     > h2 {
         padding-top: 1rem;
         padding-left: 2rem;
@@ -232,5 +231,44 @@ export const FilterWrapper = styled.div`
     height:6rem;
     >div:hover{
         cursor: pointer;
+    }
+`
+
+const moving = keyframes`
+    0%{
+        right:-300px;
+    }
+    70%{
+        right:0px;
+    }
+    100%{
+        right:-300px;
+    }
+`
+
+export const Toast = styled.div`
+    position:fixed;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    bottom:12%;
+    right:-300px;
+    width:300px;
+    height:40px;
+    border-radius:10px;
+    border:0px solid black;
+    box-shadow:1px 1px 5px 0;
+    background-color:white;
+    &.add {
+        animation: ${moving} 1s;
+        >p:after{
+            content:'북마크에 추가'
+        }
+    }
+    &.remove {
+        animation: ${moving} 1s;
+        >p:after{
+            content:'북마크에서 제거'
+        }
     }
 `

@@ -8,7 +8,6 @@ import { filter } from "../logics";
 
 export function Productlist ({list,Bookmarks,setBookmarks,Modal,setModal}) {
     const [filtering, setfiltering] = useState(list);
-
     return (
         <>
             <FilterWrapper>
