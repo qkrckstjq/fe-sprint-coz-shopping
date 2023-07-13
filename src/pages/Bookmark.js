@@ -33,7 +33,11 @@ export function Bookmark ({list,Bookmarks,setBookmarks,Modal,setModal}) {
                             list={list}
                             data={el}
                             Bookmarks={Bookmarks}
-                            setBookmarks={setBookmarks}/>
+                            setBookmarks={setBookmarks}
+                            Modal={Modal}
+                            setModal={setModal}
+                            />
+                            
                         )
                     })}
                 </CardWrapper>

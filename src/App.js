@@ -7,6 +7,7 @@ import { Productlist } from "./pages/Productlist";
 import { useEffect,useState} from "react";
 import axios from "axios";
 import { ModalComponent } from "./components/ModalComponents";
+import { ToastComponent } from "./components/ToastUi";
 
 function App() {
   const [list,setList] = useState();
@@ -14,10 +15,9 @@ function App() {
   const [Bookmarks,setBookmarks] = useState([])
   const [Modal,setModal] = useState({
     isOn:false,
-    data:{
-
-    }
+    data:{}
   });
+  
 
   useEffect(()=>{
     axios.get('http://cozshopping.codestates-seb.link/api/v1/products')
@@ -35,9 +35,31 @@ function App() {
       ?<h2>로딩중...</h2>
       :
       <Routes>
-      <Route path="/" element={<Main list={list} Bookmarks={Bookmarks} setBookmarks={setBookmarks} Modal={Modal} setModal={setModal}/>}/>
-      <Route path="/products/list" element={<Productlist list={list} Bookmarks={Bookmarks} setBookmarks={setBookmarks} Modal={Modal} setModal={setModal}/>}/>
-      <Route path="/bookmark" element={<Bookmark list={list} Bookmarks={Bookmarks} setBookmarks={setBookmarks} Modal={Modal} setModal={setModal}/>}/>
+      <Route path="/" element={<Main
+      list={list}
+      Bookmarks={Bookmarks}
+      setBookmarks={setBookmarks}
+      Modal={Modal}
+      setModal={setModal}
+      />
+      }/>
+
+      <Route path="/products/list"
+      element={<Productlist
+      list={list}
+      Bookmarks={Bookmarks}
+      setBookmarks={setBookmarks}
+      Modal={Modal}
+      setModal={setModal}/>}/>
+
+      <Route path="/bookmark"
+      element={<Bookmark
+      list={list}
+      Bookmarks={Bookmarks}
+      setBookmarks={setBookmarks}
+      Modal={Modal}
+      setModal={setModal}/>}/>
+
       </Routes>
       }
     <Header/>
@@ -51,6 +73,8 @@ function App() {
     setBookmarks={setBookmarks}
     />
     :undefined}
+    <ToastComponent
+    />
     </>
   );
 }

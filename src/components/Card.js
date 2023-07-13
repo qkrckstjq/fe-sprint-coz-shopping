@@ -1,10 +1,10 @@
 import { CardStyle, ImgWrapper } from "../styles"
 import { FaStar } from "react-icons/fa";
 import { Additem } from "../logics";
+import { Storage } from "../BookStore/storage";
 
 export function Card ({list,data,Bookmarks,setBookmarks,Modal,setModal}) {
     const {id,type,title,sub_title,brand_name,price,discountPercentage,image_url,brand_image_url,follower} = data;
-
     return (
         <CardStyle
         onClick={()=>setModal({isOn:!Modal.isOn,data:data})}
@@ -37,7 +37,10 @@ export function Card ({list,data,Bookmarks,setBookmarks,Modal,setModal}) {
                 :undefined}
             </div>
             <span
-            onClick={(e)=>(Additem(e,Bookmarks,setBookmarks,data))}
+            style={{
+                color : Storage[id] ? 'yellow' : '#eee'
+            }}
+            onClick={(e)=>(e.stopPropagation(),Additem(e,Bookmarks,setBookmarks,data,list))}
             ><FaStar/></span>
         </CardStyle>
     )

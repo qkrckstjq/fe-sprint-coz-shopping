@@ -1,3 +1,5 @@
+import { Storage } from "./BookStore/storage";
+
 export const filter = (type,Bookmarks,setfiltering)=>{
     let result = [];
     if(type==='all') {
@@ -27,9 +29,16 @@ export const filter = (type,Bookmarks,setfiltering)=>{
 
 export const Additem = (e,Bookmarks,setBookmarks,data) => {
     const {id,type,title,sub_title,brand_name,price,discountPercentage,image_url,brand_image_url,follower} = data;
+    const toastDom = document.querySelector('.toast')
     const Book_index = Bookmarks.findIndex(el=>el.id === id);
+    toastDom.classList.remove('add');
+    toastDom.classList.remove('remove');
         if(Book_index === -1) {
             e.target.style.color='yellow'
+            Storage[id] = true;
+            setTimeout(()=>{
+                toastDom.classList.add('add');
+            },0)
             Bookmarks.push({
                 id : id,
                 type : type,
@@ -44,9 +53,12 @@ export const Additem = (e,Bookmarks,setBookmarks,data) => {
             })
             setBookmarks([...Bookmarks]);
         } else {
-            
             e.target.style.color='#eee'
+            setTimeout(()=>{
+                toastDom.classList.add('remove');
+            },0)
             Bookmarks.splice(Book_index,1);
             setBookmarks([...Bookmarks]);
         }
+        
 }
